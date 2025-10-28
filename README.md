@@ -4,7 +4,7 @@ Project Overview
 
 This repository contains a comprehensive machine learning pipeline designed to predict the likelihood of a patient having an ischemic or hemorrhagic stroke based on a diverse set of health metrics and lifestyle factors.
 
-The project addresses the critical challenge of class imbalance (low occurrence of stroke cases) by employing the SMOTE (Synthetic Minority Over-sampling Technique) algorithm. It systematically evaluates four distinct classification models—Logistic Regression, Random Forest, Neural Network (MLP), and Support Vector Machine (SVM)—and culminates in a Stacking Ensemble model to achieve optimal predictive performance.
+The project addresses the critical challenge of class imbalance (low occurrence of stroke cases) by employing the SMOTE (Synthetic Minority Over-sampling Technique) algorithm. It systematically evaluates four distinct classification models-Logistic Regression, Random Forest, Neural Network (MLP), and Support Vector Machine (SVM)-and culminates in a Stacking Ensemble model to achieve optimal predictive performance.
 
  Dataset and Preprocessing
 
