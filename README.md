@@ -1,80 +1,109 @@
-Project Overview
 
-This repository contains a comprehensive machine learning pipeline designed to predict the likelihood of a patient having an ischemic or hemorrhagic stroke based on a diverse set of health metrics and lifestyle factors.
+# Stroke Risk Prediction with Advanced Machine Learning
 
-The project addresses the critical challenge of class imbalance (low occurrence of stroke cases) by employing the SMOTE (Synthetic Minority Over-sampling Technique) algorithm. It systematically evaluates four distinct classification models — Logistic Regression, Random Forest, Neural Network (MLP), and Support Vector Machine (SVM) — and culminates in a Stacking Ensemble model to achieve optimal predictive performance.
+## Project Overview
 
-Dataset and Preprocessing
+This repository contains a comprehensive machine learning pipeline designed to predict the likelihood of a patient having an **ischemic** or **hemorrhagic stroke** based on a diverse set of health metrics and lifestyle factors.
 
-The model is trained on the healthcare-dataset-stroke-data.csv (or similar) dataset.
+The project addresses the critical challenge of **class imbalance** (low occurrence of stroke cases) by employing the **SMOTE** (Synthetic Minority Over-sampling Technique) algorithm. It systematically evaluates four distinct classification models (**Logistic Regression**, **Random Forest**, **Neural Network (MLP)**, and **Support Vector Machine (SVM)**) and culminates in a **Stacking Ensemble model** to achieve optimal predictive performance.
 
-Key Preprocessing Steps
+---
 
-Missing Value Imputation: Missing values in the bmi column are filled with the column mean.
+## Dataset and Preprocessing
 
-Feature Encoding: Categorical features (e.g., work_type, smoking_status) are converted into numerical format using OneHotEncoder.
+The model is trained on the `stroke_data.csv` (or a similar dataset).
 
-Data Scaling: Numerical features are standardized using StandardScaler to ensure equal contribution from all variables.
+### Key Preprocessing Steps
 
-Imbalance Handling: The training data is balanced using the SMOTE technique to mitigate bias toward the majority class.
+* **Missing Value Imputation:**
+  Missing values in the `bmi` column are filled with the mean of the column.
 
-Modeling and Evaluation
+* **Feature Encoding:**
+  Categorical features (e.g., `work_type`, `smoking_status`) are converted into numerical format using `OneHotEncoder`.
 
-Four base models and one ensemble model were implemented and benchmarked using metrics critical for imbalanced data problems, including Accuracy, F1-Score, ROC-AUC, and Precision-Recall AUC (PR-AUC).
+* **Data Scaling:**
+  Numerical features are standardized using `StandardScaler` to ensure equal contribution from all variables.
 
-Models and Key Techniques
-Logistic Regression
+* **Imbalance Handling:**
+  The training data is balanced using the **SMOTE** technique to mitigate bias toward the majority class.
 
-Baseline performance with class_weight="balanced"
+---
 
-Random Forest
+## Modeling and Evaluation
 
-Feature importance analysis
+Four base models and one ensemble model were implemented and benchmarked using metrics critical for imbalanced datasets, including:
 
-Hyperparameter tuning
+* **Accuracy**
+* **F1-Score**
+* **ROC-AUC**
+* **Precision-Recall AUC (PR-AUC)**
 
-Neural Network (MLP)
+---
 
-Multi-layer Perceptron architecture
+## Model Details
 
-Early stopping for regularization
+### Logistic Regression
 
-Support Vector Machine (SVM)
+* Baseline performance
+* `class_weight="balanced"`
 
-probability=True for probability estimates
+### Random Forest
 
-class_weight="balanced"
+* Feature importance analysis
+* Hyperparameter tuning
 
-Stacking Ensemble
+### Neural Network (MLP)
 
-Combines predictions from all four base models
+* Multi-layer Perceptron architecture
+* Early stopping for regularization
 
-Final Logistic Regression meta-classifier for robust generalization
+### Support Vector Machine (SVM)
 
-Model Interpretability with SHAP
+* `probability=True`
+* `class_weight="balanced"`
 
-Understanding why a model makes a specific prediction is crucial in a healthcare context.
-This project integrates SHAP (SHapley Additive exPlanations) to provide local and global interpretability for the Logistic Regression and Neural Network models. SHAP values highlight which health factors most strongly influence stroke risk for individual patients.
+### Stacking Ensemble
 
-How to Run
+* Combines predictions from all four base models
+* Uses a final **Logistic Regression meta-classifier** for robust generalization
 
-This project requires Python and standard machine learning libraries.
+---
 
-Prerequisites
+## Model Interpretability with SHAP
 
-Python: 3.8+
+Understanding why a model makes a specific prediction is crucial in healthcare applications.
+This project integrates **SHAP** (SHapley Additive exPlanations) to provide both **local** and **global** interpretability for the **Logistic Regression** and **Neural Network** models.
 
-Libraries: pandas, numpy, scikit-learn, matplotlib, seaborn, imbalanced-learn, shap
+These insights highlight which health factors most influence stroke risk predictions for individual patients.
 
-Installation
+---
+
+## How to Run
+
+### Prerequisites
+
+* **Python:** 3.8+
+* **Required Libraries:**
+  `pandas`, `numpy`, `scikit-learn`, `matplotlib`, `seaborn`, `imbalanced-learn`, `shap`
+
+### Installation
+
+```bash
 pip install pandas numpy scikit-learn matplotlib seaborn imbalanced-learn shap
+```
 
-Execution
+### Execution
 
-Ensure you have stroke_data.csv in your project directory.
-Then, run the main script:
+1. Ensure you have `stroke_data.csv` in your project directory.
+2. Run the main script:
 
+```bash
 python stroke.py
+```
 
+The script outputs model performance metrics and classification reports, and displays visualizations for:
 
-The script outputs model performance metrics, classification reports, and displays visualizations for confusion matrices, ROC curves, and SHAP plots.
+* Confusion Matrices
+* ROC Curves
+* SHAP Plots
+
